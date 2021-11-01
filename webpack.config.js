@@ -11,6 +11,7 @@ module.exports = {
     module: {
         rules: [
             { test: '/\.js$/', use: 'js-loader' },
+            { test: /\.(png|jpg|gif)$/, use: 'file-loader' },
         ],
     },
     plugins: [
