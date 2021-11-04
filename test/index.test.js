@@ -9,3 +9,13 @@ it('works reading an image from the local file system', () => {
 
   expect(imageAtTest).toMatchImageSnapshot();
 });
+
+// pixi 渲染结果
+it('pixi render', async () => {
+  // 由于 jest-puppeteer 已经帮我们建好了一个 page, 因此无需调用 browser.newPage() 来创建新 page
+  await page.goto('http://localhost:9000');
+  await page.waitForSelector('canvas');
+
+  const image = await page.screenshot();
+  expect(image).toMatchImageSnapshot();
+});
